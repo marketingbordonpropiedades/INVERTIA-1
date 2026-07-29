@@ -330,27 +330,25 @@ video {
   line-height: 1.48;
 }
 
-.start-panel {
-  position: relative;
+.barrier-section {
+  padding: 44px 0 88px;
+}
+
+.barrier-panel {
   display: grid;
-  grid-template-columns: minmax(320px, 1.35fr) minmax(560px, 1.45fr) auto;
-  align-items: center;
-  gap: 42px;
-  overflow: hidden;
-  padding: 56px 42px 56px 64px;
+  justify-items: center;
+  gap: 18px;
+  padding: 64px 32px;
+  border: 1px solid rgba(229, 231, 235, 0.82);
   border-radius: 34px;
   background:
-    radial-gradient(circle at top left, rgba(30, 91, 255, 0.08), transparent 34%),
+    radial-gradient(circle at top, rgba(30, 91, 255, 0.08), transparent 40%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 252, 0.94));
-  border: 1px solid rgba(229, 231, 235, 0.82);
   box-shadow: var(--shadow-soft);
+  text-align: center;
 }
 
-.start-container {
-  width: min(96vw, 1680px);
-}
-
-.start-copy h2 {
+.barrier-panel h2 {
   margin: 0;
   font-size: clamp(2.8rem, 4.9vw, 5rem);
   line-height: 1.05;
@@ -359,84 +357,16 @@ video {
   text-wrap: balance;
 }
 
-.start-copy span,
-.start-mini-card span {
-  color: var(--color-primary);
-}
-
-.start-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 22px;
-}
-
-.start-mini-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 18px;
-  min-height: 172px;
-  padding: 26px 28px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    background-color 220ms ease;
-}
-
-.start-mini-card:hover,
-.start-mini-card:focus-within {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 26px 54px rgba(15, 23, 42, 0.14);
-}
-
-.start-mini-card h3 {
+.barrier-panel p {
   margin: 0;
-  font-size: clamp(1.45rem, 1.85vw, 2.1rem);
-  line-height: 1.18;
-  letter-spacing: -0.04em;
+  color: var(--color-muted);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.4;
+  font-weight: 600;
 }
 
-.start-icon {
-  display: grid;
-  place-items: center;
-  width: 82px;
-  height: 82px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(30, 91, 255, 0.08), rgba(30, 91, 255, 0.18));
-  color: var(--color-primary);
-  font-size: 2.15rem;
-  font-weight: 700;
-}
-
-.start-cta {
-  position: relative;
-  z-index: 1;
-  align-self: center;
-  min-width: 246px;
-  min-height: 62px;
-  padding-inline: 30px;
-  box-shadow: 0 20px 40px rgba(30, 91, 255, 0.24);
-}
-
-.start-cta:hover,
-.start-cta:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 52px rgba(30, 91, 255, 0.34);
-}
-
-.start-dots {
-  position: absolute;
-  top: 28px;
-  right: 22px;
-  bottom: 28px;
-  width: 180px;
-  background-image: radial-gradient(circle, rgba(30, 91, 255, 0.42) 2px, transparent 2.5px);
-  background-size: 30px 30px;
-  opacity: 0.28;
-  pointer-events: none;
+.barrier-panel .button {
+  margin-top: 6px;
 }
 
 .visibility-section {
@@ -558,6 +488,12 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   margin-bottom: 34px;
+}
+
+.visibility-feature-card:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 9px);
 }
 
 .visibility-feature-card {
@@ -1499,10 +1435,6 @@ video {
     max-width: none;
   }
 
-  .start-panel {
-    grid-template-columns: 1fr;
-  }
-
   .tools-support-card {
     grid-template-columns: 1fr;
     min-height: 0;
@@ -1542,14 +1474,6 @@ video {
 
   .visual-media-graphic {
     min-height: 290px;
-  }
-
-  .start-panel {
-    padding-inline: 28px;
-  }
-
-  .start-cards {
-    grid-template-columns: 1fr 1fr;
   }
 
   .footer-links {
@@ -1628,9 +1552,13 @@ video {
     padding: 118px 28px 38px;
   }
 
-  .start-cards,
   .visibility-features {
     grid-template-columns: 1fr;
+  }
+
+  .visibility-feature-card:last-child {
+    grid-column: auto;
+    width: 100%;
   }
 
   .visibility-inner {
@@ -1774,8 +1702,7 @@ video {
   }
 
   .commission-main,
-  .commission-note,
-  .start-panel {
+  .commission-note {
     padding: 24px;
   }
 
@@ -1788,23 +1715,25 @@ video {
     padding: 18px;
   }
 
-  .start-mini-card {
-    grid-template-columns: 1fr;
-    justify-items: start;
-    min-height: auto;
-  }
-
-  .start-cta {
-    width: 100%;
-    min-width: 0;
-  }
-
   .tools-support-inner {
     width: min(calc(100% - 18px), 1520px);
   }
 
   .visibility-section {
     padding: 36px 0 72px;
+  }
+
+  .barrier-section {
+    padding: 36px 0 72px;
+  }
+
+  .barrier-panel {
+    padding: 42px 24px;
+    border-radius: 24px;
+  }
+
+  .barrier-panel h2 {
+    font-size: clamp(2.35rem, 11vw, 3.8rem);
   }
 
   .visual-media-section {
