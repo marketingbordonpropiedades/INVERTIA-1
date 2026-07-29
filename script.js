@@ -63,3 +63,232 @@ if ("IntersectionObserver" in window && revealItems.length) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+const panoramas = document.querySelectorAll("[data-panorama]");
+
+panoramas.forEach((panorama) => {
+  const image = panorama.querySelector("img");
+  const hint = panorama.querySelector("[data-panorama-hint]");
+
+  if (!image) {
+    return;
+  }
+
+  let offset = 0;
+  let minOffset = 0;
+  let pointerId = null;
+  let startX = 0;
+  let startY = 0;
+  let startOffset = 0;
+  let dragAxis = null;
+
+  const clampOffset = (value) => Math.min(0, Math.max(minOffset, value));
+
+  const render = () => {
+    image.style.transform = `translate3d(${offset}px, 0, 0)`;
+  };
+
+  const updateBounds = () => {
+    const previousRange = minOffset;
+    const progress = previousRange < 0 ? offset / previousRange : 0.5;
+    minOffset = Math.min(0, panorama.clientWidth - image.getBoundingClientRect().width);
+    offset = clampOffset(minOffset * progress);
+    render();
+  };
+
+  const initialize = () => {
+    panorama.classList.add("is-interactive");
+    if (hint) {
+      hint.textContent = "Arrastrá para recorrer";
+    }
+    updateBounds();
+  };
+
+  if (image.complete) {
+    initialize();
+  } else {
+    image.addEventListener("load", initialize, { once: true });
+  }
+
+  panorama.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) {
+      return;
+    }
+
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    startOffset = offset;
+    dragAxis = null;
+    panorama.setPointerCapture(pointerId);
+  });
+
+  panorama.addEventListener("pointermove", (event) => {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - startX;
+    const deltaY = event.clientY - startY;
+
+    if (!dragAxis && Math.max(Math.abs(deltaX), Math.abs(deltaY)) > 5) {
+      dragAxis = Math.abs(deltaX) > Math.abs(deltaY) ? "horizontal" : "vertical";
+    }
+
+    if (dragAxis !== "horizontal") {
+      return;
+    }
+
+    event.preventDefault();
+    panorama.classList.add("is-dragging");
+    offset = clampOffset(startOffset + deltaX);
+    render();
+  });
+
+  const stopDragging = (event) => {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
+
+    panorama.classList.remove("is-dragging");
+    if (panorama.hasPointerCapture(pointerId)) {
+      panorama.releasePointerCapture(pointerId);
+    }
+    pointerId = null;
+    dragAxis = null;
+  };
+
+  panorama.addEventListener("pointerup", stopDragging);
+  panorama.addEventListener("pointercancel", stopDragging);
+
+  panorama.addEventListener("keydown", (event) => {
+    const step = Math.max(36, panorama.clientWidth * 0.12);
+
+    if (event.key === "ArrowLeft") {
+      offset = clampOffset(offset + step);
+    } else if (event.key === "ArrowRight") {
+      offset = clampOffset(offset - step);
+    } else if (event.key === "Home") {
+      offset = 0;
+    } else if (event.key === "End") {
+      offset = minOffset;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    render();
+  });
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(updateBounds);
+    resizeObserver.observe(panorama);
+  } else {
+    window.addEventListener("resize", updateBounds);
+  }
+});
+
+const comparisons = document.querySelectorAll("[data-compare]");
+
+comparisons.forEach((comparison) => {
+  let position = 50;
+  let pointerId = null;
+  let startX = 0;
+  let startY = 0;
+  let startPosition = 50;
+  let dragAxis = null;
+
+  const clampPosition = (value) => Math.min(100, Math.max(0, value));
+
+  const renderComparison = () => {
+    const roundedPosition = Math.round(position);
+    comparison.style.setProperty("--compare-position", `${position}%`);
+    comparison.setAttribute("aria-valuenow", String(roundedPosition));
+    comparison.setAttribute(
+      "aria-valuetext",
+      `${roundedPosition}% de la habitación vacía visible`
+    );
+  };
+
+  const setPositionFromClientX = (clientX) => {
+    const bounds = comparison.getBoundingClientRect();
+    position = clampPosition(((clientX - bounds.left) / bounds.width) * 100);
+    renderComparison();
+  };
+
+  comparison.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) {
+      return;
+    }
+
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startY = event.clientY;
+    startPosition = position;
+    dragAxis = null;
+    comparison.setPointerCapture(pointerId);
+  });
+
+  comparison.addEventListener("pointermove", (event) => {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - startX;
+    const deltaY = event.clientY - startY;
+
+    if (!dragAxis && Math.max(Math.abs(deltaX), Math.abs(deltaY)) > 5) {
+      dragAxis = Math.abs(deltaX) > Math.abs(deltaY) ? "horizontal" : "vertical";
+    }
+
+    if (dragAxis !== "horizontal") {
+      return;
+    }
+
+    event.preventDefault();
+    comparison.classList.add("is-dragging");
+    position = clampPosition(startPosition + (deltaX / comparison.clientWidth) * 100);
+    renderComparison();
+  });
+
+  const stopComparisonDrag = (event) => {
+    if (event.pointerId !== pointerId) {
+      return;
+    }
+
+    if (!dragAxis && event.pointerType === "mouse") {
+      setPositionFromClientX(event.clientX);
+    }
+
+    comparison.classList.remove("is-dragging");
+    if (comparison.hasPointerCapture(pointerId)) {
+      comparison.releasePointerCapture(pointerId);
+    }
+    pointerId = null;
+    dragAxis = null;
+  };
+
+  comparison.addEventListener("pointerup", stopComparisonDrag);
+  comparison.addEventListener("pointercancel", stopComparisonDrag);
+
+  comparison.addEventListener("keydown", (event) => {
+    const step = event.shiftKey ? 10 : 3;
+
+    if (event.key === "ArrowLeft") {
+      position = clampPosition(position - step);
+    } else if (event.key === "ArrowRight") {
+      position = clampPosition(position + step);
+    } else if (event.key === "Home") {
+      position = 0;
+    } else if (event.key === "End") {
+      position = 100;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    renderComparison();
+  });
+
+  renderComparison();
+});

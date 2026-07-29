@@ -399,10 +399,10 @@
           <div class="visual-media-cards">
             <!-- Placeholder premium imagery generated for initial mockup; replace with real assets later if needed. -->
             <article class="visual-media-card reveal">
-              <div class="visual-media-card-media">
+              <div class="visual-media-card-media visual-media-card-media-photo">
                 <img
-                  src="assets/sections/visual-media-photo-video.png"
-                  alt="Exterior de propiedad moderna para fotografias y videos profesionales"
+                  src="assets/sections/visual-media-photo-video-approved.webp"
+                  alt="Fot&oacute;grafo realizando una producci&oacute;n profesional en un interior"
                 />
               </div>
               <div class="visual-media-card-body">
@@ -415,12 +415,22 @@
             </article>
 
             <article class="visual-media-card reveal reveal-delay">
-              <div class="visual-media-card-media">
+              <div
+                class="visual-media-card-media visual-media-panorama"
+                data-panorama
+                role="region"
+                tabindex="0"
+                aria-label="Vista panor&aacute;mica interactiva de un dormitorio. Us&aacute; las flechas o arrastr&aacute; horizontalmente para recorrer el ambiente."
+              >
                 <img
-                  src="assets/sections/visual-media-360.png"
-                  alt="Interior premium para recorrido 360 grados"
+                  src="assets/sections/visual-media-360-panorama.webp"
+                  alt="Vista panor&aacute;mica de un dormitorio para recorrido 360 grados"
+                  draggable="false"
                 />
-                <span class="visual-media-overlay-360">360&deg;</span>
+                <span class="visual-media-panorama-badge" aria-hidden="true">360&deg;</span>
+                <span class="visual-media-panorama-hint" data-panorama-hint>
+                  Vista panor&aacute;mica 360&deg;
+                </span>
               </div>
               <div class="visual-media-card-body">
                 <span class="visual-media-card-icon visual-media-card-icon-text" aria-hidden="true">
@@ -432,13 +442,41 @@
             </article>
 
             <article class="visual-media-card reveal">
-              <div class="visual-media-card-media visual-media-card-media-split">
+              <div
+                class="visual-media-card-media visual-media-compare"
+                data-compare
+                role="slider"
+                tabindex="0"
+                aria-label="Comparador de amoblamiento virtual"
+                aria-orientation="horizontal"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="50"
+                aria-valuetext="50% de la habitaci&oacute;n vac&iacute;a visible"
+              >
                 <img
-                  src="assets/sections/visual-media-virtual-staging.png"
-                  alt="Comparacion antes y despues de amoblamiento virtual"
+                  class="visual-media-compare-image"
+                  src="assets/sections/visual-media-staging-after.webp"
+                  alt=""
+                  draggable="false"
                 />
-                <span class="visual-media-tag visual-media-tag-before">Antes</span>
-                <span class="visual-media-tag visual-media-tag-after">Despu&eacute;s</span>
+                <div class="visual-media-compare-before" data-compare-before>
+                  <img
+                    class="visual-media-compare-image"
+                    src="assets/sections/visual-media-staging-before.webp"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+                <span class="visual-media-compare-label visual-media-compare-label-before" aria-hidden="true">
+                  Antes
+                </span>
+                <span class="visual-media-compare-label visual-media-compare-label-after" aria-hidden="true">
+                  Despu&eacute;s
+                </span>
+                <span class="visual-media-compare-divider" data-compare-divider aria-hidden="true">
+                  <span class="visual-media-compare-handle"></span>
+                </span>
               </div>
               <div class="visual-media-card-body">
                 <span class="visual-media-card-icon" aria-hidden="true">
@@ -450,10 +488,10 @@
             </article>
 
             <article class="visual-media-card reveal reveal-delay">
-              <div class="visual-media-card-media">
+              <div class="visual-media-card-media visual-media-card-media-drone">
                 <img
-                  src="assets/sections/visual-media-drone.png"
-                  alt="Vista aerea para tomas con dron"
+                  src="assets/sections/visual-media-drone-approved.webp"
+                  alt="Dron frente a una propiedad para realizar tomas a&eacute;reas"
                 />
               </div>
               <div class="visual-media-card-body">
