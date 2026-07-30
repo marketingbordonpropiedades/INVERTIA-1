@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -24,10 +24,18 @@
             <header class="site-header">
               <div class="nav-shell">
                 <a class="brand" href="#inicio" aria-label="Ir al inicio">
-                  <img
-                    src="assets/logo-light.png?v=2"
-                    alt="Invertia Brokers Inmobiliarios"
-                  />
+                  <span
+                    class="brand-horizontal"
+                    role="img"
+                    aria-label="Invertia Brokers Inmobiliarios"
+                  >
+                    <span class="brand-horizontal-symbol" aria-hidden="true">
+                      <img src="assets/logo-dark.png?v=2" alt="" />
+                    </span>
+                    <span class="brand-horizontal-wordmark" aria-hidden="true">
+                      <img src="assets/logo-dark.png?v=2" alt="" />
+                    </span>
+                  </span>
                 </a>
 
                 <button
@@ -56,14 +64,17 @@
             <div class="video-frame reveal reveal-delay">
               <img
                 class="home-video hero-image"
-                src="assets/sections/hero-meeting.png"
-                alt="Equipo inmobiliario de Invertia en reuni&oacute;n"
+                src="assets/sections/invertia-hero-interior.png"
+                alt="Living moderno con ventanales y vista urbana"
               />
 
               <div class="hero-overlay">
                 <div class="hero-copy">
                   <span class="eyebrow eyebrow-hero">Red inmobiliaria en C&oacute;rdoba</span>
-                  <h1>Cre&aacute; o hac&eacute; crecer tu inmobiliaria.</h1>
+                  <h1>
+                    Cre&aacute; o hac&eacute; crecer
+                    <span>tu inmobiliaria.</span>
+                  </h1>
                   <p class="hero-subtitle">
                     Sumate a una red que te brinda capacitaci&oacute;n, marketing,
                     herramientas, respaldo y oportunidades para desarrollar tu
@@ -177,19 +188,6 @@
                   </span>
                 </article>
 
-                <article class="visibility-feature-card reveal">
-                  <span class="visibility-feature-icon">
-                    <img src="assets/icons/signature.svg" alt="" />
-                  </span>
-                  <span class="visibility-feature-body">
-                    <strong>Firma digital</strong>
-                    <small>Agilidad para cerrar sin fricci&oacute;n.</small>
-                  </span>
-                  <span class="visibility-feature-check" aria-hidden="true">
-                    <img src="assets/icons/check.svg" alt="" />
-                  </span>
-                </article>
-
               </div>
 
               <a class="button visibility-primary-cta" href="#contacto">
@@ -197,15 +195,15 @@
               </a>
             </div>
 
-            <div class="visibility-right" aria-hidden="true">
+            <div class="visibility-right">
               <div class="visibility-curve visibility-curve-outer"></div>
               <div class="visibility-curve visibility-curve-inner"></div>
               <div class="visibility-dots visibility-dots-bottom"></div>
               <div class="visibility-visual-glow"></div>
               <img
                 class="visibility-visual-image"
-                src="assets/sections/network-benefits-layout.png"
-                alt="Visual de herramientas y soporte de la red"
+                src="assets/sections/espacio-de-trabajo-inmobiliario-elegante.png"
+                alt="Espacio de trabajo inmobiliario con notebook, planos y cámara"
               />
             </div>
           </div>
@@ -337,62 +335,12 @@
               </p>
             </div>
 
-            <div class="visual-media-graphic" aria-hidden="true">
-              <div class="visual-media-orbit visual-media-orbit-outer"></div>
-              <div class="visual-media-orbit visual-media-orbit-inner"></div>
-              <div class="visual-media-graphic-dots"></div>
-
-              <div class="visual-media-house-card">
-                <svg viewBox="0 0 220 160" role="presentation">
-                  <path
-                    d="M44 118h132"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="3"
-                  />
-                  <path
-                    d="M66 114V64l44-27 44 27v50"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                  />
-                  <path
-                    d="M84 114V82h22v32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linejoin="round"
-                    stroke-width="4"
-                  />
-                  <path
-                    d="M118 77h22v18h-22z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="4"
-                  />
-                  <path
-                    d="M52 132h116"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="3"
-                  />
-                </svg>
-                <div class="visual-media-house-controls">
-                  <span class="visual-media-house-play"></span>
-                  <span class="visual-media-house-line"></span>
-                  <span class="visual-media-house-knob"></span>
-                </div>
-              </div>
-
-              <div class="visual-media-floating visual-media-floating-camera">
-                <img src="assets/icons/camera.svg" alt="" />
-              </div>
-
-              <div class="visual-media-floating visual-media-floating-play">
-                <span></span>
-              </div>
+            <div class="visual-media-graphic">
+              <img
+                class="visual-media-graphic-image"
+                src="assets/sections/invertia-visual-production-kit.png"
+                alt="Kit de producci&oacute;n visual inmobiliaria con drone, c&aacute;mara, tablet, celular y plano"
+              />
             </div>
           </div>
 
@@ -506,13 +454,82 @@
         </div>
       </section>
 
+      <section class="network-story" aria-labelledby="network-story-title">
+        <div class="container network-story-layout">
+          <div class="network-story-copy reveal">
+            <span class="eyebrow">M&aacute;s que una inmobiliaria</span>
+            <h2 id="network-story-title">
+              Somos una red que impulsa tu
+              <span>crecimiento</span> con estructura.
+            </h2>
+            <p>
+              Invertia integra herramientas, procesos y acompa&ntilde;amiento
+              profesional para que cada asesor pueda enfocarse en generar
+              oportunidades, fortalecer relaciones y desarrollar su negocio
+              con mayor estructura.
+            </p>
+            <a class="button button-primary" href="#contacto">Conocer la red</a>
+          </div>
+
+          <div class="network-story-media reveal reveal-delay">
+            <img
+              src="assets/sections/invertia-building-exterior.png"
+              alt="Fachada moderna con balcones de vidrio"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="network-process" aria-labelledby="network-process-title">
+        <div class="container">
+          <header class="network-process-header reveal">
+            <span class="eyebrow">Nuestro proceso</span>
+            <h2 id="network-process-title">
+              Un camino claro para <span>mejores resultados.</span>
+            </h2>
+          </header>
+
+          <ol class="network-process-steps reveal">
+            <li class="network-process-step">
+              <span class="network-process-number">01</span>
+              <h3>Captar</h3>
+              <p>
+                Generamos oportunidades y conectamos con potenciales clientes.
+              </p>
+            </li>
+            <li class="network-process-step">
+              <span class="network-process-number">02</span>
+              <h3>Presentar</h3>
+              <p>
+                Preparamos cada propuesta y mostramos su valor con
+                profesionalismo.
+              </p>
+            </li>
+            <li class="network-process-step">
+              <span class="network-process-number">03</span>
+              <h3>Gestionar</h3>
+              <p>
+                Ordenamos el seguimiento y acompa&ntilde;amos cada negociaci&oacute;n.
+              </p>
+            </li>
+            <li class="network-process-step">
+              <span class="network-process-number">04</span>
+              <h3>Cerrar</h3>
+              <p>
+                Facilitamos operaciones claras, seguras y bien acompa&ntilde;adas.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section class="commission section-dark" id="comisiones">
         <div class="container commission-layout">
           <div class="commission-copy reveal">
             <span class="eyebrow eyebrow-dark">Modelo de comisiones</span>
-            <h2>Split de comisiones mas justo.</h2>
+            <h2>Split de comisiones m&aacute;s justo.</h2>
             <p>
-              Un esquema pensado para que crecer dentro de la red tambien
+              Un esquema pensado para que crecer dentro de la red tambi&eacute;n
               signifique ganar mejor.
             </p>
             <a class="button button-light" href="#contacto"
@@ -520,16 +537,16 @@
             >
           </div>
 
-          <div class="commission-panel reveal reveal-delay">
+          <div class="commission-panel reveal reveal-delay" data-commission-panel>
             <div class="commission-main">
-              <span class="commission-label">Desde el primer dia</span>
+              <span class="commission-label">Desde el primer d&iacute;a</span>
               <strong class="commission-number" data-commission-number>70%</strong>
-              <p data-commission-copy>para vos desde el primer dia.</p>
+              <p data-commission-copy>para vos desde el primer d&iacute;a.</p>
             </div>
             <div class="commission-note">
               <span class="card-kicker">Rentabilidad escalable</span>
               <p data-commission-note>
-                Despues de determinado volumen, mejoras tu rentabilidad.
+                Despu&eacute;s de determinado volumen, mejora tu rentabilidad.
               </p>
             </div>
           </div>
@@ -567,7 +584,7 @@
       <div class="container footer-layout">
         <div class="footer-brand reveal">
           <img
-            src="assets/logo-light.png?v=2"
+            src="assets/logo-dark.png?v=2"
             alt="Invertia Brokers Inmobiliarios"
           />
           <p>

@@ -1,10 +1,12 @@
+document.documentElement.classList.add("motion-enabled");
+
 const landingConfig = {
   // Editar aca el porcentaje principal de comision
   commissionNumber: "70%",
   // Editar aca la frase debajo del porcentaje principal
-  commissionCopy: "para vos desde el primer dia.",
+  commissionCopy: "para vos desde el primer d\u00eda.",
   // Editar aca la nota secundaria del modelo
-  commissionNote: "Despues de determinado volumen, mejoras tu rentabilidad.",
+  commissionNote: "Despu\u00e9s de determinado volumen, mejora tu rentabilidad.",
 };
 
 const commissionNumberElement = document.querySelector("[data-commission-number]");
@@ -22,6 +24,52 @@ if (commissionCopyElement) {
 if (commissionNoteElement) {
   commissionNoteElement.textContent = landingConfig.commissionNote;
 }
+
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+const animateCommissionNumber = (panel) => {
+  if (
+    !commissionNumberElement ||
+    !panel ||
+    panel.dataset.commissionCounted === "true"
+  ) {
+    return;
+  }
+
+  panel.dataset.commissionCounted = "true";
+
+  if (reducedMotionQuery.matches) {
+    commissionNumberElement.textContent = landingConfig.commissionNumber;
+    return;
+  }
+
+  const targetValue =
+    Number.parseInt(landingConfig.commissionNumber, 10) || 70;
+  const duration = 1050;
+  let startTime = null;
+
+  commissionNumberElement.textContent = "0%";
+
+  const updateNumber = (timestamp) => {
+    if (startTime === null) {
+      startTime = timestamp;
+    }
+
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const easedProgress = 1 - Math.pow(1 - progress, 3);
+    const currentValue = Math.round(targetValue * easedProgress);
+
+    commissionNumberElement.textContent = `${currentValue}%`;
+
+    if (progress < 1) {
+      window.requestAnimationFrame(updateNumber);
+    } else {
+      commissionNumberElement.textContent = landingConfig.commissionNumber;
+    }
+  };
+
+  window.requestAnimationFrame(updateNumber);
+};
 
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav");
@@ -49,6 +97,11 @@ if ("IntersectionObserver" in window && revealItems.length) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+
+          if (entry.target.matches("[data-commission-panel]")) {
+            animateCommissionNumber(entry.target);
+          }
+
           observer.unobserve(entry.target);
         }
       });
@@ -61,7 +114,13 @@ if ("IntersectionObserver" in window && revealItems.length) {
 
   revealItems.forEach((item) => observer.observe(item));
 } else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
+  revealItems.forEach((item) => {
+    item.classList.add("is-visible");
+
+    if (item.matches("[data-commission-panel]")) {
+      animateCommissionNumber(item);
+    }
+  });
 }
 
 const panoramas = document.querySelectorAll("[data-panorama]");
