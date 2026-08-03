@@ -102,6 +102,10 @@ if ("IntersectionObserver" in window && revealItems.length) {
             animateCommissionNumber(entry.target);
           }
 
+          if (entry.target.matches("[data-barrier-panel]")) {
+            entry.target.closest(".barrier-section")?.classList.add("is-visible");
+          }
+
           observer.unobserve(entry.target);
         }
       });
@@ -119,6 +123,10 @@ if ("IntersectionObserver" in window && revealItems.length) {
 
     if (item.matches("[data-commission-panel]")) {
       animateCommissionNumber(item);
+    }
+
+    if (item.matches("[data-barrier-panel]")) {
+      item.closest(".barrier-section")?.classList.add("is-visible");
     }
   });
 }
