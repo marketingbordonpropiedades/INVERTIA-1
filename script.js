@@ -2,7 +2,7 @@ document.documentElement.classList.add("motion-enabled");
 
 const landingConfig = {
   // Editar aca el porcentaje principal de comision
-  commissionNumber: "70%",
+  commissionNumber: "75%",
   // Editar aca la frase debajo del porcentaje principal
   commissionCopy: "para vos desde el primer d\u00eda.",
   // Editar aca la nota secundaria del modelo
@@ -44,7 +44,7 @@ const animateCommissionNumber = (panel) => {
   }
 
   const targetValue =
-    Number.parseInt(landingConfig.commissionNumber, 10) || 70;
+    Number.parseInt(landingConfig.commissionNumber, 10) || 75;
   const duration = 1050;
   let startTime = null;
 
