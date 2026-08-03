@@ -1,0 +1,639 @@
+.sumate-page {
+  background: #ffffff;
+  color: #171717;
+}
+
+.sumate-main {
+  display: grid;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  align-items: start;
+  background: #ffffff;
+}
+
+.sumate-visual {
+  position: sticky;
+  top: 0;
+  min-width: 0;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  color: #ffffff;
+  isolation: isolate;
+}
+
+.sumate-visual > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 66% center;
+}
+
+.sumate-visual-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(5, 5, 5, 0.06) 4%, rgba(5, 5, 5, 0.18) 38%, rgba(5, 5, 5, 0.72) 68%, rgba(5, 5, 5, 0.97) 100%),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.34), rgba(5, 5, 5, 0.04) 76%);
+}
+
+.sumate-visual-content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: min(100%, 680px);
+  padding: clamp(2.25rem, 4vw, 3.75rem) clamp(2rem, 4vw, 3.75rem);
+}
+
+.sumate-visual-content h1 {
+  max-width: 560px;
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.25rem, 4.8vw, 4.75rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.sumate-visual-content h1 span {
+  color: #c69a62;
+}
+
+.sumate-visual-lead {
+  max-width: 520px;
+  margin: 1rem 0 0;
+  color: rgba(245, 245, 242, 0.82);
+  font-size: clamp(0.85rem, 1.05vw, 1rem);
+  line-height: 1.65;
+}
+
+.sumate-benefits {
+  display: grid;
+  margin-top: 1.4rem;
+  border-top: 1px solid rgba(198, 154, 98, 0.36);
+}
+
+.sumate-benefit {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(221, 216, 208, 0.2);
+}
+
+.sumate-benefit-icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #c69a62;
+}
+
+.sumate-benefit-icon svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+}
+
+.sumate-benefit-copy {
+  display: grid;
+  gap: 0.16rem;
+  min-width: 0;
+}
+
+.sumate-benefit-copy strong {
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.sumate-benefit-copy small {
+  color: rgba(225, 225, 222, 0.7);
+  font-size: 0.69rem;
+  line-height: 1.45;
+}
+
+.sumate-visual-content h1,
+.sumate-visual-lead,
+.sumate-benefit {
+  animation: sumate-visual-enter 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sumate-visual-lead {
+  animation-delay: 60ms;
+}
+
+.sumate-benefit:nth-child(1) {
+  animation-delay: 110ms;
+}
+
+.sumate-benefit:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.sumate-benefit:nth-child(3) {
+  animation-delay: 210ms;
+}
+
+@keyframes sumate-visual-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sumate-form-panel {
+  min-width: 0;
+  background: #ffffff;
+}
+
+.sumate-form-brand {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: 0.85rem clamp(2rem, 4vw, 4rem);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(185, 138, 78, 0.12), transparent 34%),
+    linear-gradient(125deg, #161616, #090909);
+  color: #ffffff;
+}
+
+.sumate-form-brand a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border-radius: 2px;
+}
+
+.sumate-form-brand img {
+  display: block;
+  width: clamp(118px, 10vw, 148px);
+  height: auto;
+}
+
+.sumate-form-brand-copy {
+  min-width: 0;
+  padding-left: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-left: 1px solid rgba(185, 138, 78, 0.5);
+}
+
+.sumate-form-brand-title {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.75rem, 2.35vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.sumate-form-brand-subtitle {
+  max-width: 480px;
+  margin: 0.35rem 0 0;
+  color: rgba(225, 225, 222, 0.72);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.sumate-form-content {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem) clamp(4rem, 7vw, 7rem);
+}
+
+.sumate-form {
+  margin-top: 0;
+}
+
+.sumate-form-section {
+  padding: clamp(2.25rem, 4vw, 3.5rem) 0;
+  border-top: 1px solid #dedbd6;
+}
+
+.sumate-form-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.sumate-section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sumate-section-heading .network-process-number {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: clamp(1.875rem, 2.25vw, 2.125rem);
+  line-height: 1;
+}
+
+.sumate-section-heading h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.75rem, 2.8vw, 2.45rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.sumate-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.35rem 1.25rem;
+}
+
+.sumate-field {
+  min-width: 0;
+}
+
+.sumate-field-wide {
+  grid-column: 1 / -1;
+}
+
+.sumate-field label {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  color: #302e2b;
+  font-size: 0.79rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+}
+
+.sumate-field input,
+.sumate-field select,
+.sumate-field textarea {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid #d5d1cb;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #191919;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.sumate-field input,
+.sumate-field select {
+  padding: 0 1rem;
+}
+
+.sumate-field textarea {
+  min-height: 136px;
+  padding: 0.9rem 1rem;
+  resize: vertical;
+}
+
+.sumate-field select {
+  cursor: pointer;
+}
+
+.sumate-field input::placeholder,
+.sumate-field textarea::placeholder {
+  color: #97918a;
+  opacity: 1;
+}
+
+.sumate-field input:focus,
+.sumate-field select:focus,
+.sumate-field textarea:focus,
+.sumate-consent input:focus-visible,
+.sumate-submit:focus-visible,
+.sumate-form-brand a:focus-visible {
+  outline: 2px solid #b98a4e;
+  outline-offset: 3px;
+}
+
+.sumate-field input:focus,
+.sumate-field select:focus,
+.sumate-field textarea:focus {
+  border-color: #9d7643;
+  box-shadow: 0 0 0 3px rgba(185, 138, 78, 0.12);
+}
+
+.sumate-field input[aria-invalid="true"],
+.sumate-field select[aria-invalid="true"],
+.sumate-field textarea[aria-invalid="true"] {
+  border-color: #9b3434;
+}
+
+.sumate-field-error {
+  display: block;
+  min-height: 1.05rem;
+  margin-top: 0.35rem;
+  color: #913232;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.sumate-consent {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 0 0.8rem;
+  align-items: start;
+  padding: 1.75rem 0 0;
+  border-top: 1px solid #dedbd6;
+}
+
+.sumate-consent input {
+  width: 20px;
+  height: 20px;
+  margin: 0.1rem 0 0;
+  accent-color: #8f6738;
+}
+
+.sumate-consent label {
+  color: #5f5b56;
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.sumate-consent .sumate-field-error {
+  grid-column: 2;
+}
+
+.sumate-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.sumate-submit {
+  min-height: 56px;
+  padding: 0.9rem 1.55rem;
+  border: 1px solid #a77d47;
+  background: linear-gradient(120deg, #171717, #050505);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.sumate-submit:hover {
+  border-color: #c79a60;
+  transform: translateY(-2px);
+}
+
+.sumate-submit:disabled {
+  border-color: #8e8982;
+  background: #5b5956;
+  color: rgba(255, 255, 255, 0.72);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sumate-form-note {
+  max-width: 310px;
+  margin: 0;
+  color: #7a756e;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.sumate-form-status {
+  margin-top: 1.2rem;
+  padding: 0;
+  color: #5f5b56;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.sumate-form-status:empty {
+  display: none;
+}
+
+.sumate-form-status.is-error,
+.sumate-form-status.is-ready {
+  padding: 0.9rem 1rem;
+  border-left: 2px solid;
+}
+
+.sumate-form-status.is-error {
+  border-color: #913232;
+  background: #fbf4f4;
+  color: #702929;
+}
+
+.sumate-form-status.is-ready {
+  border-color: #a77d47;
+  background: #faf7f1;
+  color: #59442a;
+}
+
+#sumate-form {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (max-width: 980px) {
+  .sumate-main {
+    grid-template-columns: 1fr;
+  }
+
+  .sumate-visual {
+    position: relative;
+    height: auto;
+    min-height: 640px;
+  }
+
+  .sumate-visual-content {
+    width: min(100%, 720px);
+    padding: 3rem clamp(2rem, 7vw, 4rem);
+  }
+
+  .sumate-visual-content h1 {
+    max-width: 620px;
+    font-size: clamp(3.25rem, 8vw, 4.5rem);
+  }
+
+  .sumate-form-brand {
+    padding-inline: clamp(2rem, 8vw, 5rem);
+  }
+
+  .sumate-form-content {
+    width: min(100%, 860px);
+    padding-inline: clamp(2rem, 8vw, 5rem);
+  }
+
+  .sumate-section-heading .network-process-number {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sumate-visual {
+    min-height: 600px;
+  }
+
+  .sumate-visual > img {
+    object-position: 64% center;
+  }
+
+  .sumate-visual-content {
+    padding: 2rem 1.25rem 2.25rem;
+  }
+
+  .sumate-visual-content h1 {
+    max-width: 340px;
+    font-size: clamp(2.75rem, 12vw, 3.4rem);
+  }
+
+  .sumate-visual-lead {
+    max-width: 330px;
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .sumate-benefits {
+    margin-top: 1rem;
+  }
+
+  .sumate-benefit {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+  }
+
+  .sumate-benefit-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .sumate-benefit-icon svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .sumate-benefit-copy strong {
+    font-size: 0.72rem;
+  }
+
+  .sumate-benefit-copy small {
+    font-size: 0.63rem;
+    line-height: 1.4;
+  }
+
+  .sumate-form-brand {
+    min-height: 88px;
+    gap: 0.55rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .sumate-form-brand img {
+    width: clamp(80px, 22vw, 92px);
+  }
+
+  .sumate-form-brand-copy {
+    padding-left: 0.55rem;
+  }
+
+  .sumate-form-brand-title {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+
+  .sumate-form-brand-subtitle {
+    margin-top: 0.25rem;
+    font-size: 0.62rem;
+    line-height: 1.45;
+  }
+
+  .sumate-form-content {
+    padding: 2.5rem 1.25rem 4.5rem;
+  }
+
+  .sumate-section-heading .network-process-number {
+    font-size: 1.5rem;
+  }
+
+  .sumate-form {
+    margin-top: 0;
+  }
+
+  .sumate-form-section {
+    padding: 2.25rem 0;
+  }
+
+  .sumate-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sumate-field-wide {
+    grid-column: auto;
+  }
+
+  .sumate-form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sumate-submit {
+    width: 100%;
+  }
+
+  .sumate-form-note {
+    max-width: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .sumate-form-brand {
+    gap: 0.45rem;
+    padding-inline: 0.75rem;
+  }
+
+  .sumate-form-brand img {
+    width: 72px;
+  }
+
+  .sumate-form-brand-copy {
+    padding-left: 0.45rem;
+  }
+
+  .sumate-form-brand-subtitle {
+    font-size: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sumate-visual-content h1,
+  .sumate-visual-lead,
+  .sumate-benefit {
+    animation: none;
+  }
+
+  .sumate-field input,
+  .sumate-field select,
+  .sumate-field textarea,
+  .sumate-submit {
+    transition: none;
+  }
+
+  .sumate-submit:hover {
+    transform: none;
+  }
+}
