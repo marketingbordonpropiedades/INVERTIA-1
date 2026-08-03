@@ -62,7 +62,7 @@
 }
 
 .sumate-visual-content h1 span {
-  color: #c69a62;
+  color: #bf930d;
 }
 
 .sumate-visual-lead {
@@ -94,7 +94,7 @@
   height: 2rem;
   align-items: center;
   justify-content: center;
-  color: #c69a62;
+  color: #bf930d;
 }
 
 .sumate-benefit-icon svg {
@@ -172,7 +172,7 @@
   gap: clamp(1rem, 2vw, 2rem);
   padding: 0.85rem clamp(2rem, 4vw, 4rem);
   background:
-    radial-gradient(circle at 18% 20%, rgba(185, 138, 78, 0.12), transparent 34%),
+    radial-gradient(circle at 18% 20%, rgba(191, 147, 13, 0.12), transparent 34%),
     linear-gradient(125deg, #161616, #090909);
   color: #ffffff;
 }
@@ -192,7 +192,7 @@
 .sumate-form-brand-copy {
   min-width: 0;
   padding-left: clamp(1.25rem, 2.5vw, 2.25rem);
-  border-left: 1px solid rgba(185, 138, 78, 0.5);
+  border-left: 1px solid rgba(191, 147, 13, 0.5);
 }
 
 .sumate-form-brand-title {
@@ -318,15 +318,15 @@
 .sumate-consent input:focus-visible,
 .sumate-submit:focus-visible,
 .sumate-form-brand a:focus-visible {
-  outline: 2px solid #b98a4e;
+  outline: 2px solid #bf930d;
   outline-offset: 3px;
 }
 
 .sumate-field input:focus,
 .sumate-field select:focus,
 .sumate-field textarea:focus {
-  border-color: #9d7643;
-  box-shadow: 0 0 0 3px rgba(185, 138, 78, 0.12);
+  border-color: #8a6a09;
+  box-shadow: 0 0 0 3px rgba(191, 147, 13, 0.12);
 }
 
 .sumate-field input[aria-invalid="true"],
@@ -357,7 +357,7 @@
   width: 20px;
   height: 20px;
   margin: 0.1rem 0 0;
-  accent-color: #8f6738;
+  accent-color: #bf930d;
 }
 
 .sumate-consent label {
@@ -380,7 +380,7 @@
 .sumate-submit {
   min-height: 56px;
   padding: 0.9rem 1.55rem;
-  border: 1px solid #a77d47;
+  border: 1px solid #bf930d;
   background: linear-gradient(120deg, #171717, #050505);
   color: #ffffff;
   cursor: pointer;
@@ -393,7 +393,7 @@
 }
 
 .sumate-submit:hover {
-  border-color: #c79a60;
+  border-color: #d4ae42;
   transform: translateY(-2px);
 }
 
@@ -438,7 +438,7 @@
 }
 
 .sumate-form-status.is-ready {
-  border-color: #a77d47;
+  border-color: #bf930d;
   background: #faf7f1;
   color: #59442a;
 }
