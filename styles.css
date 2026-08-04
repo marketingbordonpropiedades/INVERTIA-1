@@ -2762,6 +2762,7 @@ h3 {
 }
 
 .tools-support {
+  padding-top: clamp(12px, 1vw, 16px);
   background: var(--color-ivory-light);
 }
 
@@ -4803,7 +4804,7 @@ h3 {
 
 .visibility-section .visibility-inner {
   width: min(calc(100% - 48px), 1420px);
-  padding: clamp(94px, 8vw, 132px) 0 clamp(64px, 5.5vw, 88px);
+  padding: clamp(94px, 8vw, 132px) 0 clamp(8px, 1vw, 16px);
 }
 
 .visibility-section .visibility-content {
@@ -4922,28 +4923,16 @@ h3 {
 .barrier-section {
   position: relative;
   isolation: isolate;
+  display: grid;
+  align-items: center;
   overflow: clip;
-  padding: clamp(32px, 3.2vw, 44px) 0;
-  background: #fff;
+  min-height: 190px;
+  padding: 18px 0;
+  background: #111 url("assets/sections/barrier-dark-background.png") center / cover no-repeat;
 }
 
 .barrier-section::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: min(86vw, 820px);
-  height: clamp(190px, 20vw, 260px);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(191, 147, 13, 0.12) 0%,
-    rgba(191, 147, 13, 0.055) 44%,
-    rgba(191, 147, 13, 0) 74%
-  );
-  filter: blur(20px);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  content: "";
+  display: none;
 }
 
 .barrier-section .barrier-panel {
@@ -4951,7 +4940,7 @@ h3 {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   align-items: center;
   padding: 0;
   border: 0;
@@ -4959,16 +4948,17 @@ h3 {
 }
 
 .barrier-section .barrier-panel h2 {
-  font-size: clamp(2.9rem, 4.6vw, 5rem);
-  line-height: 0.96;
+  color: #f3f0e9;
+  font-size: clamp(2.55rem, 3.7vw, 3.55rem);
+  line-height: 0.98;
 }
 
 .barrier-section .barrier-panel p {
   grid-row: auto;
-  margin: 0 0 20px;
-  color: #a8aaad;
+  margin: 0 0 7px;
+  color: #c6c7c8;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.7rem, 2.7vw, 2.8rem);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -4978,6 +4968,11 @@ h3 {
 .barrier-section .barrier-panel .button {
   grid-row: auto;
   grid-column: auto;
+  min-height: 42px;
+  padding: 10px 24px;
+  border-color: rgba(212, 174, 66, 0.58);
+  color: #f7f7f5;
+  background: rgba(5, 5, 5, 0.92);
   transition:
     color 280ms ease,
     border-color 280ms ease,
@@ -5286,7 +5281,7 @@ h3 {
 
   .visibility-section .visibility-inner {
     width: min(calc(100% - 28px), 1420px);
-    padding: 76px 0 48px;
+    padding: 76px 0 16px;
   }
 
   .visibility-section .visibility-features {
@@ -5306,7 +5301,8 @@ h3 {
   }
 
   .barrier-section {
-    padding: 32px 0;
+    min-height: 190px;
+    padding: 16px 0;
   }
 
   .barrier-section .barrier-panel {
@@ -5314,11 +5310,11 @@ h3 {
   }
 
   .barrier-section .barrier-panel h2 {
-    font-size: clamp(2.7rem, 12vw, 3.6rem);
+    font-size: clamp(2.35rem, 11vw, 3rem);
   }
 
   .barrier-section .barrier-panel p {
-    font-size: clamp(1.65rem, 8vw, 2.25rem);
+    font-size: clamp(1.35rem, 6.5vw, 1.7rem);
   }
 
   .network-story-copy {
@@ -5521,7 +5517,7 @@ h3 {
 
   .visibility-section .visibility-inner {
     width: min(calc(100% - 32px), 1420px);
-    padding: 48px 0 38px;
+    padding: 48px 0 12px;
   }
 
   .visibility-section .visibility-right {
@@ -5558,6 +5554,7 @@ h3 {
 }
 
 .motion-enabled .barrier-section::after {
+  display: none;
   position: absolute;
   top: -12%;
   left: 0;
