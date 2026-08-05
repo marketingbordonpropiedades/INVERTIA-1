@@ -4929,11 +4929,7 @@ h3 {
   overflow: clip;
   min-height: 190px;
   padding: 18px 0;
-  background: #111 url("assets/sections/barrier-dark-background-silver.png") center / cover no-repeat;
-}
-
-.barrier-section::before {
-  display: none;
+  background: url("assets/sections/barrier-dark-background-clean.png") center / cover no-repeat;
 }
 
 .barrier-section .barrier-panel {
@@ -5540,47 +5536,6 @@ h3 {
   }
 }
 
-/* Entrada editorial de la seccion "Arranca sin barreras". */
-.motion-enabled .barrier-section::before {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.82);
-  transition:
-    opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
-    transform 1100ms cubic-bezier(0.22, 1, 0.36, 1) 100ms;
-}
-
-.motion-enabled .barrier-section.is-visible::before {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.motion-enabled .barrier-section::after {
-  display: none;
-  position: absolute;
-  top: -12%;
-  left: 0;
-  z-index: 0;
-  width: 36%;
-  height: 124%;
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 25%,
-    rgba(212, 175, 55, 0.22) 50%,
-    rgba(255, 255, 255, 0.1) 68%,
-    transparent 100%
-  );
-  filter: blur(32px);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-140%) rotate(-8deg);
-  content: "";
-}
-
-.motion-enabled .barrier-section.is-visible::after {
-  animation: barrierLightSweep 1320ms cubic-bezier(0.22, 1, 0.36, 1) 140ms both;
-}
-
 .motion-enabled .barrier-section .barrier-panel.reveal {
   opacity: 1;
   transform: none;
@@ -5645,26 +5600,6 @@ h3 {
   }
 }
 
-@keyframes barrierLightSweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-140%) rotate(-8deg);
-  }
-
-  20% {
-    opacity: 0.22;
-  }
-
-  80% {
-    opacity: 0.18;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateX(340%) rotate(-8deg);
-  }
-}
-
 @media (min-width: 641px) and (max-width: 1080px) {
   .motion-enabled .barrier-section .barrier-panel > h2 {
     transform: translateX(-70px);
@@ -5690,15 +5625,6 @@ h3 {
 }
 
 @media (max-width: 640px) {
-  .motion-enabled .barrier-section::after {
-    width: 32%;
-    filter: blur(26px);
-  }
-
-  .motion-enabled .barrier-section.is-visible::after {
-    animation-duration: 1100ms;
-  }
-
   .motion-enabled .barrier-section .barrier-panel > h2 {
     transform: translateX(-38px);
   }
@@ -5732,41 +5658,13 @@ h3 {
     }
   }
 
-  @keyframes barrierLightSweep {
-    0% {
-      opacity: 0;
-      transform: translateX(-140%) rotate(-8deg);
-    }
-
-    20% {
-      opacity: 0.15;
-    }
-
-    80% {
-      opacity: 0.12;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateX(340%) rotate(-8deg);
-    }
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-enabled .barrier-section::before,
-  .motion-enabled .barrier-section.is-visible::before,
   .motion-enabled .barrier-section .barrier-panel > h2,
   .motion-enabled .barrier-section .barrier-panel > p,
   .motion-enabled .barrier-section .barrier-panel > .button {
     opacity: 1;
     transform: none;
-  }
-
-  .motion-enabled .barrier-section::after,
-  .motion-enabled .barrier-section.is-visible::after {
-    animation: none;
-    opacity: 0;
-    transform: translateX(-140%) rotate(-8deg);
   }
 }
