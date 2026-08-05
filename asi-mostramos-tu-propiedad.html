@@ -122,7 +122,6 @@
               <li>Videos cinematográficos</li>
               <li>Edición y estilo profesional</li>
             </ul>
-            <a class="showcase-button" href="sumate.html#sumate-form">Ver ejemplo de video</a>
           </div>
           <div class="photo-media-grid">
             <video
@@ -134,10 +133,34 @@
             >
               Tu navegador no admite video HTML5.
             </video>
-            <img src="assets/sections/invertia-hero-interior.png" alt="Living fotografiado con luz natural" loading="lazy" />
-            <img src="assets/sections/visual-media-360.png" alt="Dormitorio luminoso preparado para publicación" loading="lazy" />
-            <img src="assets/sections/visual-media-virtual-staging.png" alt="Ambiente residencial presentado profesionalmente" loading="lazy" />
-            <img src="assets/sections/invertia-property-editorial.png" alt="Fachada residencial contemporánea" loading="lazy" />
+            <div class="photo-gallery" data-photo-gallery aria-label="Galería de fotografía inmobiliaria">
+              <div class="photo-gallery-viewport">
+                <figure class="photo-gallery-slide" data-gallery-slide>
+                  <img src="assets/sections/invertia-hero-interior.png" alt="Living fotografiado con luz natural" loading="lazy" />
+                </figure>
+                <figure class="photo-gallery-slide" data-gallery-slide hidden>
+                  <img src="assets/sections/visual-media-360.png" alt="Dormitorio luminoso preparado para publicación" loading="lazy" />
+                </figure>
+                <figure class="photo-gallery-slide" data-gallery-slide hidden>
+                  <img src="assets/sections/visual-media-virtual-staging.png" alt="Ambiente residencial presentado profesionalmente" loading="lazy" />
+                </figure>
+                <figure class="photo-gallery-slide" data-gallery-slide hidden>
+                  <img src="assets/sections/invertia-property-editorial.png" alt="Fachada residencial contemporánea" loading="lazy" />
+                </figure>
+                <figure class="photo-gallery-slide" data-gallery-slide hidden>
+                  <img src="assets/sections/visual-media-drone-approved.webp" alt="Vista aérea profesional de una propiedad" loading="lazy" />
+                </figure>
+              </div>
+              <button class="photo-gallery-control photo-gallery-prev" type="button" data-gallery-prev aria-label="Imagen anterior">←</button>
+              <button class="photo-gallery-control photo-gallery-next" type="button" data-gallery-next aria-label="Imagen siguiente">→</button>
+              <div class="photo-gallery-dots" role="tablist" aria-label="Seleccionar imagen">
+                <button class="photo-gallery-dot" type="button" data-gallery-dot aria-label="Ver imagen 1" aria-current="true"></button>
+                <button class="photo-gallery-dot" type="button" data-gallery-dot aria-label="Ver imagen 2"></button>
+                <button class="photo-gallery-dot" type="button" data-gallery-dot aria-label="Ver imagen 3"></button>
+                <button class="photo-gallery-dot" type="button" data-gallery-dot aria-label="Ver imagen 4"></button>
+                <button class="photo-gallery-dot" type="button" data-gallery-dot aria-label="Ver imagen 5"></button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -145,10 +168,19 @@
       <section class="showcase-section showcase-section-tinted" id="recorrido-360" aria-labelledby="tour-title">
         <div class="container showcase-row showcase-row-reverse">
           <div class="cloudpano-card" data-cloudpano>
-            <div id="IFPUdh60u" class="cloudpano-embed" aria-label="Recorrido virtual 360 grados"></div>
+            <div id="IFPUdh60u" class="cloudpano-embed" aria-label="Recorrido virtual 360 grados">
+              <iframe
+                title="Recorrido virtual 360 grados"
+                frameborder="0"
+                allow="vr; accelerometer; gyroscope; fullscreen"
+                allowfullscreen
+                loading="eager"
+                src="https://app.cloudpano.com/tours/IFPUdh60u"
+              ></iframe>
+            </div>
             <div class="embed-loading" data-cloudpano-status>
               <strong>Recorrido 360°</strong>
-              <span>El recorrido interactivo se cargará al acercarte a esta sección.</span>
+              <span>El recorrido interactivo se está cargando.</span>
             </div>
             <noscript>
               <p class="embed-fallback">Activá JavaScript para ver el recorrido 360°.</p>
@@ -179,7 +211,6 @@
               <li>Maquetas 3D navegables</li>
               <li>Presentaciones listas para compartir</li>
             </ul>
-            <a class="showcase-button" href="#plano-3d">Ver presentación de ejemplo</a>
           </div>
           <div class="sketchfab-card" id="plano-3d">
             <span class="media-instruction">Arrastrá para girar</span>
@@ -248,7 +279,6 @@
               <li>Fotografías aéreas de alta resolución</li>
               <li>Perspectivas que marcan la diferencia</li>
             </ul>
-            <a class="showcase-button" href="sumate.html#sumate-form">Ver video aéreo</a>
           </div>
           <div class="drone-media-grid">
             <video
@@ -261,7 +291,6 @@
               Tu navegador no admite video HTML5.
             </video>
             <img src="assets/sections/visual-media-drone.png" alt="Vista aérea complementaria de una propiedad" loading="lazy" />
-            <img src="assets/sections/visual-media-drone-approved.webp" alt="Drone utilizado para tomas inmobiliarias" loading="lazy" />
           </div>
         </div>
       </section>
@@ -281,11 +310,11 @@
       <section class="showcase-final-cta">
         <div class="container showcase-final-cta-inner">
           <div>
-            <h2>¿Listo para mostrar tu propiedad en su mejor versión?</h2>
-            <p>Hablemos y potenciemos juntos el próximo gran paso.</p>
+            <h2>¿Listo para potenciar la presentación de tus propiedades?</h2>
+            <p>Sumate a Invertia y llevá tu propuesta comercial a un nivel más profesional.</p>
           </div>
           <a class="showcase-button showcase-button-filled" href="sumate.html#sumate-form">
-            Valuá tu propiedad
+            Quiero sumarme
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" /></svg>
           </a>
         </div>
