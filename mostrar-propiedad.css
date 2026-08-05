@@ -1,6 +1,8 @@
 :root {
-  --showcase-gold: #bf7b12;
-  --showcase-gold-dark: #9b6109;
+  --showcase-gold: var(--color-gold);
+  --showcase-gold-strong: #D4AF37;
+  --showcase-gold-dark: var(--color-gold-dark);
+  --showcase-silver: var(--color-silver-highlight);
   --showcase-ink: #12100d;
   --showcase-muted: #615d57;
   --showcase-line: rgba(64, 51, 33, 0.14);
@@ -122,7 +124,7 @@
 }
 
 .showcase-hero h1 span {
-  color: var(--showcase-gold);
+  color: var(--showcase-silver);
 }
 
 .showcase-hero-copy p {
@@ -160,22 +162,24 @@
 
 .showcase-button {
   display: inline-flex;
-  min-height: 45px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
+  gap: 0.65rem;
+  padding: 0 24px;
   border: 1px solid var(--showcase-gold);
+  border-radius: 0;
   color: var(--showcase-gold-dark);
   background: transparent;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.025em;
-  transition: color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .showcase-button svg {
-  width: 18px;
+  width: 16px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -184,7 +188,14 @@
 }
 
 .showcase-button:hover,
-.showcase-button:focus-visible,
+.showcase-button:focus-visible {
+  color: var(--showcase-gold-dark);
+  border-color: var(--showcase-gold-strong);
+  background: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.12);
+  transform: translateY(-2px);
+}
+
 .showcase-button-filled {
   color: #ffffff;
   background: var(--showcase-gold);
@@ -192,8 +203,26 @@
 
 .showcase-button-filled:hover,
 .showcase-button-filled:focus-visible {
-  background: var(--showcase-gold-dark);
-  box-shadow: 0 12px 28px rgba(155, 97, 9, 0.16);
+  color: #ffffff;
+  border-color: var(--showcase-gold-strong);
+  background: var(--showcase-gold-strong);
+  box-shadow: 0 10px 24px rgba(212, 175, 55, 0.18);
+}
+
+.showcase-page .footer-contact-cta {
+  min-height: 50px;
+  padding: 0 24px;
+  border-color: var(--showcase-gold);
+  color: var(--showcase-silver);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+}
+
+.showcase-page .footer-contact-cta:hover,
+.showcase-page .footer-contact-cta:focus-visible {
+  border-color: var(--showcase-gold-strong);
+  color: #ffffff;
+  background: var(--showcase-gold-strong);
 }
 
 .service-cards {
@@ -223,7 +252,7 @@
 
 .service-card:hover,
 .service-card:focus-visible {
-  border-color: rgba(191, 123, 18, 0.55);
+  border-color: rgba(var(--color-gold-rgb), 0.55);
   box-shadow: 0 18px 38px rgba(53, 42, 24, 0.1);
   transform: translateY(-4px);
 }
@@ -915,4 +944,49 @@
   .showcase-header .nav > a:not(.button)::after {
     transition: none;
   }
+}
+
+/* Final showcase button overrides: keep the approved visual treatment effective. */
+.showcase-page a.showcase-button {
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid var(--showcase-gold);
+  color: var(--showcase-gold-dark);
+  background: transparent;
+  box-shadow: none;
+}
+
+.showcase-page a.showcase-button.showcase-button-filled {
+  color: #ffffff;
+  background: #0B0C0D;
+}
+
+.showcase-page a.showcase-button:hover,
+.showcase-page a.showcase-button:focus-visible {
+  border-color: var(--showcase-gold-strong);
+  color: var(--showcase-gold-dark);
+  background: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.12);
+}
+
+.showcase-page a.showcase-button.showcase-button-filled:hover,
+.showcase-page a.showcase-button.showcase-button-filled:focus-visible {
+  border-color: var(--showcase-gold-strong);
+  color: #ffffff;
+  background: #0B0C0D;
+}
+
+.showcase-page .footer-contact-cta,
+.showcase-page .footer-contact-cta:hover,
+.showcase-page .footer-contact-cta:focus-visible {
+  min-height: 50px;
+  border: 1px solid var(--showcase-gold);
+  color: #ffffff;
+  background: transparent;
+}
+
+.showcase-page .footer-contact-cta:hover,
+.showcase-page .footer-contact-cta:focus-visible {
+  border-color: var(--showcase-gold-strong);
+  background: rgba(212, 175, 55, 0.12);
 }
