@@ -135,6 +135,8 @@
 .benefits-support-card { min-height: 166px; padding: 1.45rem; border: 1px solid rgba(255, 255, 255, 0.17); background: rgba(22, 22, 22, 0.82); transition: border-color 240ms ease, background-color 240ms ease, transform 240ms ease; }
 .benefits-support-card:hover { border-color: rgba(var(--benefits-accent-rgb), 0.76); background: rgba(31, 31, 31, 0.94); transform: translateY(-3px); }
 .benefits-support-card img { width: 32px; height: 32px; margin-bottom: 1rem; }
+.benefits-feature-card > img,
+.benefits-support-card > img { filter: brightness(0) saturate(100%) invert(68%) sepia(18%) saturate(1000%) hue-rotate(4deg) brightness(90%) contrast(88%); }
 .benefits-support-card h3 { color: #f5f2ea; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; }
 .benefits-support-card p { color: rgba(255, 255, 255, 0.66); }
 
