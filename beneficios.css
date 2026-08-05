@@ -2,8 +2,9 @@
   overflow-x: hidden;
   background: #f8f7f4;
   color: #171615;
-  --benefits-accent: #bfc1c4;
-  --benefits-accent-strong: #d8dadd;
+  --benefits-accent: var(--color-silver);
+  --benefits-accent-strong: var(--color-silver-highlight);
+  --benefits-gold: var(--color-gold);
   --benefits-accent-rgb: 191, 193, 196;
 }
 

@@ -59,7 +59,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.85rem;
-  color: #9a6f08;
+  color: var(--color-gold-dark);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.19em;
@@ -75,7 +75,7 @@
 }
 
 .about-eyebrow-light {
-  color: #d0a52f;
+  color: var(--color-gold);
 }
 
 .about-hero h1 {
@@ -102,7 +102,7 @@
   min-height: 48px;
   margin-top: 2rem;
   padding: 0.85rem 1.65rem;
-  border: 1px solid rgba(191, 147, 13, 0.82);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.82);
   letter-spacing: 0.11em;
 }
 
@@ -115,7 +115,7 @@
 .about-primary-cta:hover,
 .about-primary-cta:focus-visible {
   color: #ffffff;
-  background: rgba(191, 147, 13, 0.14);
+  background: rgba(var(--color-gold-rgb), 0.14);
 }
 
 .about-challenges {
@@ -164,7 +164,7 @@
   width: 42px;
   height: 1px;
   margin-top: 1.3rem;
-  background: #bf930d;
+  background: var(--color-gold);
 }
 
 .about-challenge-grid {
@@ -192,7 +192,7 @@
   width: 74px;
   height: 74px;
   place-items: center;
-  color: #bf930d;
+  color: var(--color-gold);
 }
 
 .about-line-icon svg,
@@ -246,7 +246,7 @@
   padding: clamp(4.6rem, 7vw, 6.8rem) 0;
   color: #ffffff;
   background:
-    radial-gradient(circle at 76% 30%, rgba(191, 147, 13, 0.09), transparent 34%),
+    radial-gradient(circle at 76% 30%, rgba(var(--color-gold-rgb), 0.09), transparent 34%),
     linear-gradient(125deg, #181818, #070707);
 }
 
@@ -389,7 +389,7 @@
 .about-final-cta {
   padding: clamp(4.7rem, 7vw, 7rem) 0;
   background:
-    radial-gradient(circle at center, rgba(191, 147, 13, 0.08), transparent 44%),
+    radial-gradient(circle at center, rgba(var(--color-gold-rgb), 0.08), transparent 44%),
     #f8f7f4;
 }
 
@@ -420,7 +420,7 @@
 .about-secondary-cta:hover,
 .about-secondary-cta:focus-visible {
   color: #111111;
-  background: rgba(191, 147, 13, 0.1);
+  background: rgba(var(--color-gold-rgb), 0.1);
 }
 
 .about-page .site-footer {
