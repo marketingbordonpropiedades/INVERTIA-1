@@ -2404,6 +2404,7 @@ h3 {
 }
 
 .nav a:first-child::after,
+.nav a.is-active::after,
 .nav a:not(.nav-cta):hover::after,
 .nav a:not(.nav-cta):focus-visible::after {
   opacity: 1;

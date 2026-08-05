@@ -21,6 +21,31 @@
     <link rel="stylesheet" href="sumate.css" />
   </head>
   <body class="sumate-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#inicio" aria-label="Ir al inicio">
+          <span class="brand-horizontal" role="img" aria-label="Invertia Brokers Inmobiliarios">
+            <span class="brand-horizontal-symbol" aria-hidden="true">
+              <img src="assets/logo-dark.png?v=2" alt="" />
+            </span>
+            <span class="brand-horizontal-wordmark" aria-hidden="true">
+              <img src="assets/logo-dark.png?v=2" alt="" />
+            </span>
+          </span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu">
+          <span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav">
+          <a href="index.html#inicio">Inicio</a>
+          <a href="beneficios.html">Beneficios</a>
+          <a href="asi-mostramos-tu-propiedad.html">As&iacute; present&aacute;s tus propiedades</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a class="is-active" href="sumate.html#sumate-form" aria-current="page">Sumate</a>
+          <a class="button button-primary nav-cta" href="beneficios.html">CONOC&Eacute; M&Aacute;S</a>
+        </nav>
+      </div>
+    </header>
     <main class="sumate-main">
       <section class="sumate-visual" aria-labelledby="sumate-title">
         <img
@@ -405,6 +430,7 @@
       </div>
     </footer>
 
+    <script src="script.js?v=2"></script>
     <script src="sumate.js"></script>
   </body>
 </html>
