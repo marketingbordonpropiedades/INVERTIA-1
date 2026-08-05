@@ -134,15 +134,28 @@
 }
 
 .showcase-hero-media {
+  position: relative;
+  isolation: isolate;
   min-height: 535px;
   overflow: hidden;
 }
 
 .showcase-hero-media img {
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.showcase-hero-media::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.24) 22%, rgba(255, 255, 255, 0.08) 48%, rgba(255, 255, 255, 0) 70%);
 }
 
 .showcase-button {
@@ -240,13 +253,13 @@
 }
 
 .showcase-section {
-  padding: clamp(4.6rem, 7vw, 7rem) 0;
+  padding: clamp(3.8rem, 5.8vw, 5.8rem) 0;
   border-bottom: 1px solid rgba(52, 43, 31, 0.08);
   background: #ffffff;
 }
 
 .service-cards + .showcase-section {
-  padding-top: clamp(5.6rem, 8vw, 8rem);
+  padding-top: clamp(4.8rem, 6.5vw, 6.5rem);
 }
 
 .showcase-section-tinted {
@@ -334,21 +347,20 @@
 .photo-media-grid {
   display: grid;
   min-width: 0;
-  grid-template-columns: 1.35fr 0.65fr 0.65fr;
-  grid-template-rows: repeat(2, minmax(130px, 1fr));
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: stretch;
   gap: 10px;
 }
 
 .drone-media-grid {
   display: grid;
   min-width: 0;
-  grid-template-columns: 1.55fr 0.65fr;
-  grid-template-rows: repeat(2, minmax(130px, 1fr));
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.8fr);
+  grid-template-rows: minmax(390px, 1fr);
   gap: 10px;
 }
 
 .media-video,
-.photo-media-grid img,
 .drone-media-grid img {
   width: 100%;
   height: 100%;
@@ -361,8 +373,97 @@
 
 .photo-main-video,
 .drone-main-video {
-  grid-row: 1 / 3;
   min-height: 390px;
+}
+
+.drone-main-video {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.photo-gallery {
+  position: relative;
+  min-width: 0;
+  min-height: 390px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #17130e;
+  box-shadow: 0 12px 28px rgba(30, 25, 18, 0.08);
+}
+
+.photo-gallery-viewport,
+.photo-gallery-slide,
+.photo-gallery-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-gallery-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-gallery-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.photo-gallery-slide img {
+  display: block;
+  object-fit: cover;
+}
+
+.photo-gallery-control {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(17, 15, 12, 0.55);
+  transform: translateY(-50%);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.photo-gallery-control:hover,
+.photo-gallery-control:focus-visible {
+  border-color: var(--showcase-gold);
+  background: rgba(17, 15, 12, 0.8);
+}
+
+.photo-gallery-prev { left: 12px; }
+.photo-gallery-next { right: 12px; }
+
+.photo-gallery-dots {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.photo-gallery-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.85;
+}
+
+.photo-gallery-dot[aria-current="true"] {
+  border-color: var(--showcase-gold);
+  background: var(--showcase-gold);
+  opacity: 1;
 }
 
 .cloudpano-card,
@@ -575,7 +676,7 @@
 }
 
 .showcase-benefits {
-  padding: clamp(3.3rem, 5vw, 5rem) 0;
+  padding: clamp(2.8rem, 4.2vw, 4.2rem) 0;
   background: var(--showcase-warm);
 }
 
@@ -601,10 +702,21 @@
   gap: 0.9rem;
   align-items: center;
   padding: 1.6rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.showcase-benefits-grid article:hover,
+.showcase-benefits-grid article:focus-within {
+  border-color: #d5d7da;
+  background: #f0f1f2;
+  box-shadow: 0 12px 24px rgba(32, 35, 38, 0.12);
+  transform: translateY(-4px);
 }
 
 .showcase-benefits-grid article > span {
-  color: var(--showcase-gold);
+  color: #17130e;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 2.2rem;
   line-height: 1;
@@ -624,9 +736,9 @@
 }
 
 .showcase-final-cta {
-  padding: 2.4rem 0;
+  padding: 2rem 0;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.76)),
+    linear-gradient(90deg, rgba(12, 12, 12, 0.94), rgba(12, 12, 12, 0.78)),
     url("assets/sections/invertia-hero-interior.png") center 60% / cover;
 }
 
@@ -639,6 +751,7 @@
 
 .showcase-final-cta h2 {
   margin: 0;
+  color: #ffffff;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 500;
@@ -647,7 +760,7 @@
 
 .showcase-final-cta p {
   margin: 0.55rem 0 0;
-  color: var(--showcase-muted);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.8rem;
 }
 
@@ -716,13 +829,12 @@
   .showcase-row-reverse .showcase-copy { order: -1; }
 
   .photo-media-grid {
-    grid-template-columns: 1.35fr 0.65fr 0.65fr;
-    grid-template-rows: repeat(2, minmax(115px, 1fr));
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   }
 
   .drone-media-grid {
-    grid-template-columns: 1.55fr 0.65fr;
-    grid-template-rows: repeat(2, minmax(115px, 1fr));
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.8fr);
+    grid-template-rows: minmax(115px, 1fr);
   }
 
   .cloudpano-card,
@@ -755,7 +867,7 @@
 
   .service-card span { max-width: 360px; }
   .showcase-section,
-  .service-cards + .showcase-section { padding: 4.2rem 0; }
+  .service-cards + .showcase-section { padding: 3.6rem 0; }
 
   .showcase-copy h2 { font-size: clamp(2.7rem, 13vw, 3.7rem); }
 
@@ -770,6 +882,11 @@
     grid-row: 1;
     grid-column: 1 / -1;
     min-height: 260px;
+  }
+
+  .photo-gallery {
+    grid-column: 1 / -1;
+    min-height: 220px;
   }
 
   .cloudpano-card,
@@ -792,6 +909,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .showcase-benefits-grid article,
   .service-card,
   .showcase-button,
   .showcase-header .nav > a:not(.button)::after {
